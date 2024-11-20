@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <main>
+    <header>
+      <img src="images/logo.svg" alt="">
+      <nav class="nav">
+        <img src="images/icon-close-menu.svg" alt="" class="close-menu">
+        <div class="menu-list-with-cat">
+          <div class="sub-menu">
+            <button class="features-btn btn">
+              Features
+              <img src="images/icon-arrow-down.svg" alt="" class="arrow-down">
+            </button>
+            <div class="categories">
+              <button>
+                <img src="images/icon-todo.svg" alt="">
+                Todo List
+              </button>
+              <button>
+                <img src="images/icon-calendar.svg" alt="">
+                Calender
+              </button>
+              <button>
+                <img src="images/icon-reminders.svg" alt="">
+                Reminder
+              </button>
+              <button>
+                <img src="images/icon-planning.svg" alt="">
+                Planning
+              </button>
+            </div>
+          </div>
+
+          <div class="sub-menu">
+            <button class="company-btn btn">
+              Company
+              <img src="images/icon-arrow-down.svg" alt="" class="arrow-down">
+            </button>
+            <div class="categories">
+              <button>
+                History
+              </button>
+              <button>
+                Our Team
+              </button>
+              <button>
+                Blog
+              </button>
+            </div>
+          </div>
+  
+        </div>
+
+        <li><a href="">Careers</a></li>
+        <li><a href="">About</a></li>
+
+        <div class="login-section display-mobile">
+          <a href="">Login</a>
+          <button class="register-btn">
+            Register
+          </button>
+        </div>
+      </nav>
+      <div class="login-section display-desktop">
+        <a href="">Login</a>
+        <button class="register-btn ">
+          Register
+        </button>
+      </div>
+      <img src="images/icon-menu.svg" alt="" class="open-menu">
+    </header>
+    
+    <section>
+      <div class="img-container"></div>
+      <div class="text-container">
+        <h1>Make<span></span>remote work</h1>
+        <p>
+           Get your team in sync, no matter your location. Streamline processes, 
+           create team rituals, and watch productivity soar.
+        </p>
+        <button class="learn-more">Learn more</button>
+        <div class="logo-gallary">
+          <img src="images/client-databiz.svg" alt="">
+          <img src="images/client-audiophile.svg" alt="">
+          <img src="images/client-meet.svg" alt="">
+          <img src="images/client-maker.svg" alt="">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+
+
+
+<!--
+  
+  
+
+  
+
+  
+
+  
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+
+  --->
+
+
+  <script>
+    const closeMenu =  document.querySelector('.close-menu');
+    const openMenu =  document.querySelector('.open-menu');
+    const nav =  document.querySelector('.nav');
+    const subMenuBtn =  document.querySelectorAll('.btn');
+    const arrowDonw =  document.querySelectorAll('.arrow-down');
+    
+    const categories = document.querySelectorAll('.categories');
+
+    openMenu.onclick = ()=>{
+      nav.classList.toggle('nav-active');
+    }
+    closeMenu.onclick = ()=>{
+      nav.classList.toggle('nav-active');
+
+    }
+
+    subMenuBtn.forEach((btn) =>{
+      btn.addEventListener('click', () => {
+        const target = btn.nextElementSibling;
+         categories.forEach((cat) =>{
+           if(cat !== target){
+            cat.classList.remove('categories-active');
+           } else {
+            cat.classList.toggle('categories-active');
+            arrowDonw.forEach((arrow)=>{
+              if(arrow !== target){
+                arrow.classList.remove('arrow-down-active');
+              } else{
+                arrow.classList.add('arrow-down-active');
+              }
+            })
+           }
+       })
+      })
+
+    })
+/*
+    featureBtn.onclick = ()=>{
+      categories.forEach((cat) =>{
+        const target = cat.nextElementSibling;
+        if(!target){
+          cat.classList.toggle('categories-active');
+          console.log('working');
+        } else{
+          cat.classList.toggle('categories-active');
+        }
+      })
+    }
+
+   */
+  /* faqTitle.forEach((header)=>{
+        header.addEventListener('click', ()=>{
+          const target = header.nextElementSibling;
+          faqAns.forEach((content) => {
+           if (content !== target){
+            content.classList.remove('show-ans');
+           
+           } else {
+            content.classList.toggle('show-ans');
+           }
+
+
+          })*/
+
+  </script>
+</body>
+</html>
